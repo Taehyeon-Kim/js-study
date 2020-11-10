@@ -10,12 +10,12 @@ let adjustY = 6;
 
 // handle mouse
 const mouse = {
-  x: null, 
+  x: null,
   y: null,
   radius: 150
 }
 
-window.addEventListener('mousemove', function(event){
+window.addEventListener('mousemove', function (event) {
   mouse.x = event.x;
   mouse.y = event.y;
 });
@@ -58,11 +58,11 @@ class Particle {
     } else {
       if (this.x !== this.baseX) {
         let dx = this.x - this.baseX;
-        this.x -= dx/10;
+        this.x -= dx / 10;
       }
       if (this.y !== this.baseY) {
         let dy = this.y - this.baseY;
-        this.y -= dy/10;
+        this.y -= dy / 10;
       }
     }
   }
@@ -72,14 +72,14 @@ function init() {
   particleArray = [];
   for (let y = 0, y2 = textCoordinates.height; y < y2; y++) {
     for (let x = 0, x2 = textCoordinates.width; x < x2; x++) {
-      if (textCoordinates.data[(y  * 4 * textCoordinates.width) + (x * 4) + 3] > 128) {
+      if (textCoordinates.data[(y * 4 * textCoordinates.width) + (x * 4) + 3] > 128) {
         let positionX = x + adjustX;
         let positionY = y + adjustY;
         particleArray.push(new Particle(positionX * 20, positionY * 20));
       }
     }
   }
-  
+
 }
 
 init();
